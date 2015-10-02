@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+    <span class="greeting">Здравствуйте, <%= current_user.email %></span>
+    <a href='/users/edit'>Змінити налаштування профілю</a>
+     <a href='/mainbase'>Переглянути список студентів</a>
+    <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+<% else %>
+<span class="greeting">
+  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <%= "Адреса електроної пошти" %>
+  <p><%= f.text_field :email %></p>
+  <%= "Пароль" %>
+  <p><%= f.password_field :password %></p>
+  <%= f.check_box :remember_me %>
+  <%= "Запам’ятати мене" %>
+  <%= f.submit 'Увійти' %>
+<% end %> 
+<%= link_to 'Зареєструватися', 'users/sign_up' %>
+<% end %>
+</span>
+

@@ -1,0 +1,78 @@
+$(document).ready(function(){
+
+});
+function nickOnClick()
+{
+  var offset = $(this).offset();
+  var relativeX = (this.pageX - offset.left);
+  var relativeY = (this.pageY - offset.top);
+var username = $(this).attr('id');
+
+	$('#chat_menu').toggle().offset({top: relativeY, left: relativeX});
+	$('.chat_menu_list').attr('id',username);
+
+}
+function banUser() {
+	var username = $('.chat_menu_list').attr('id');
+	$.ajax({
+    url: '/chatroom/changeRole',
+    method: 'POST',
+    success: function(data){  },
+    data: { 
+    	username: username, //$(this).attr("id")
+        newRole: 'banned'
+     }
+	});
+}
+
+function muteUser() {
+	var username = $('.chat_menu_list').attr('id');
+	$.ajax({
+    url: '/chatroom/changeRole',
+    method: 'POST',
+    success: function(data){  },
+    data: { 
+    	username: username, //$(this).attr("id")
+        newRole: 'muted'
+     }
+	});
+}
+
+function unbanUser() {
+	var username = $('.chat_menu_list').attr('id');
+	$.ajax({
+    url: '/chatroom/changeRole',
+    method: 'POST',
+    success: function(data){  },
+    data: { 
+        username: username, //$(this).attr("id")
+        newRole: 'user'     }
+	});
+}
+
+function showPrivate() {
+    $("#private_room").show();
+    $("#chat_room").hide();
+    $("#game_chat").hide();
+    $("#showPrivate").addClass('active');
+    $("#showGeneral").removeClass('active');
+    $("#showGamechat").removeClass('active');
+
+}
+function showGeneral() {
+    $("#chat_room").show();
+    $("#private_room").hide();
+    $("#game_chat").hide();
+    $("#showGeneral").addClass('active');
+    $("#showPrivate").removeClass('active');
+    $("#showGamechat").removeClass('active');
+}
+
+function showGamechat() {
+    $("#game_chat").show();
+    $("#chat_room").hide();
+    $("#private_room").hide();
+    $("#showGamechat").addClass('active');
+    $("#showGeneral").removeClass('active');
+    $("#showPrivate").removeClass('active');
+}

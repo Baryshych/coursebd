@@ -1,0 +1,13 @@
+<% @students.each do |student| %>
+<div class='studentEntry'>
+<td><%= student.name %></td>
+<td><%= student.surname %></td>
+<td><%= link_to 'Показати деталі', student_path(student) %></td>
+<td><%= link_to 'Видалити запис', student_path(student),
+              method: :delete,
+              data: { confirm: 'Ви впевнені?' } %></td>
+    </tr>
+</div>
+<% end %>
+<%= link_to 'Створити новий запис', 'students/new' %>
+<%= link_to 'Повернутися', '/' %>
