@@ -22,11 +22,14 @@ class StudentsController < ApplicationController
     end
 
 	def destroy
-    if(check_permission)
+    if(check_permission == 1)
   		@student = Student.find(params[:id])
   		@student.destroy
+      redirect_to "/mainbase" and return
+    else
+      redirect_to "/mainbase" and return
     end
-   		redirect_to "/mainbase" and return
+   		
 end
  private
   def student_params
