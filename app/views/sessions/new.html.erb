@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
     <span class="greeting">Здравствуйте, <%= current_user.email %></span>
+    <%= current_user.permissions %>
     <a href='/users/edit'>Змінити налаштування профілю</a>
      <a href='/mainbase'>Переглянути список студентів</a>
     <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>

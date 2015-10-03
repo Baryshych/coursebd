@@ -3,7 +3,7 @@
 <td><%= @student.surname %></td>
 <td><%= @student.fname %></td>
 <td><%= @student.emails %></td>
-<td><%= @student.phone_number %></td>
+<p><td><%= @student.phone_number %></td></p>
 <td><%= link_to 'Видалити запис', student_path(@student),
               method: :delete,
               data: { confirm: 'Ви впевнені?' } %></td>
