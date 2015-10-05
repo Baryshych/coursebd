@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
 	def show
     @student = Student.find(params[:id])
     @students = Student.all
-    end
+   end
 
 	def destroy
     if(check_permission == 1)
@@ -28,13 +28,22 @@ class StudentsController < ApplicationController
       redirect_to "/mainbase" and return
     else
       redirect_to "/mainbase" and return
-    end
-   		
+  end  		
 end
- private
-  def student_params
-    params.require(:student).permit(:name, :emails, :surname, :phone_number)
+
+
+  def edit
+    @student = Student.find(params[:id])
+    @student = Student.update(params[:id], student_params)
+    @student.save
   end
+
+ private
+
+  def student_params
+    params.require(:student).permit(:name, :emails, :surname, :fname, :phone_number, :course, :group)
+  end
+
   def check_permission
     if (current_user.permissions == 'admin')
       return 1

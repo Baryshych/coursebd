@@ -59,5 +59,7 @@ Rails.application.routes.draw do
   match "/login" => "sessions#new",  via: [:get]
   match "/mainbase" => "mainbase#view", via: [:get]
   match "/students/new" => "students#create", via: [:post]
+  post "/students/:id" => "students#edit"
+  post "/students/:id/edit" => "students#edit"
   root "sessions#new"
 end
