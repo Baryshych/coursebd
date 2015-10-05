@@ -1,0 +1,40 @@
+<%= form_for :student do |f| %>
+  <p>
+    <%= "Ім’я" %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= "Прізвище" %><br>
+    <%= f.text_field :surname %>
+  </p>
+
+  <p>
+    <%= "По-батькові" %><br>
+    <%= f.text_field :fname %>
+  </p>
+  <p>
+
+    <%= "Номер телефону" %><br>
+    <%= f.text_field :phone_number %>
+  </p>
+
+  <p>
+    <%= "Електронна скринька" %><br>
+    <%= f.text_field :emails %>
+  </p>
+ 
+  <p>
+    <%= "Група" %><br>
+    <%= f.text_field :group %>
+  </p>
+
+    <p>
+    <%= "Курс" %><br>
+    <%= f.text_field :course %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<p><%= link_to 'Повернутися', student_path(@student) %></p>
