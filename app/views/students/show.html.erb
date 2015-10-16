@@ -6,13 +6,13 @@
 <td><%= @student.phone_number %></td>
 <td><%= @student.group %></td>
 <td><%= @student.course %></td>
+<% if can? :manage, @student %>
 <td><%= link_to 'Видалити запис', student_path(@student),
               method: :delete,
               data: { confirm: 'Ви впевнені?' } %></td>
     </tr>
-</div>
-
-<%= link_to 'Редагувати', 
+<td><%= link_to 'Редагувати', 
 edit_student_path(params.merge({:student => {:id => @student.id}}) ) %>
-
+</td>
+<% end %>
 <p><%= link_to 'Повернутися', '/mainbase' %></p>
