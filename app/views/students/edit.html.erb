@@ -1,40 +1,57 @@
 <%= form_for :student do |f| %>
-  <p>
-    <%= "Ім’я" %><br>
-    <%= f.text_field :name %>
-  </p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Ім’я" %><br>
+      <%= f.text_field :name, :class => 'form-control', :placeholder => "Вассисуарій" %>
+    </div>
+  </div>
  
-  <p>
-    <%= "Прізвище" %><br>
-    <%= f.text_field :surname %>
-  </p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Прізвище" %><br>
+      <%= f.text_field :surname, :class => 'form-control', :placeholder => "Пупкінсон"  %>
+    </div>
+  </div>
 
-  <p>
-    <%= "По-батькові" %><br>
-    <%= f.text_field :fname %>
-  </p>
-  <p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "По-батькові" %><br>
+      <%= f.text_field :fname, :class => 'form-control', :placeholder => "Вассисуарійович"  %>
+    </div>
+  </div>
+  
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Номер телефону" %><br>
+      <%= f.text_field  :phone_number, :class => 'form-control', :placeholder => "+380ххххххх" %>
+    </div>
+  </div>
 
-    <%= "Номер телефону" %><br>
-    <%= f.text_field :phone_number %>
-  </p>
-
-  <p>
-    <%= "Електронна скринька" %><br>
-    <%= f.text_field :emails %>
-  </p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Електронна скринька" %><br>
+      <%= f.text_field :emails, :class => 'form-control', :placeholder => "vasissuary@pupkin.com"  %>
+    </div>
+  </div>
  
-  <p>
-    <%= "Група" %><br>
-    <%= f.text_field :group %>
-  </p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+    <%= "Група" %>
+    <%= f.text_field :group, :class => 'form-control', :placeholder => "XX-00" %>
+    </div>
+  </div>
 
-    <p>
-    <%= "Курс" %><br>
-    <%= f.text_field :course %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+    <%= "Курс" %>
+    <%= f.text_field :course, :class => 'form-control', :placeholder => "1" %>
+  </div>
+  </div>
+  
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+    <%= f.submit 'Зберегти', :class => 'btn btn-default' %>
+    </div>
+  </div>
 <% end %>
 <p><%= link_to 'Повернутися', student_path(@student) %></p>

@@ -1,17 +1,40 @@
-<% @students.each do |student| %>
-<div class='studentEntry'>
-<td><%= student.name %></td>
-<td><%= student.surname %></td>
-<td><%= link_to 'Показати деталі', student_path(student) %></td>
 <% if current_user.permissions == 'admin' %>
-<td><%= link_to 'Видалити запис', student_path(student),
-              method: :delete,
-              data: { confirm: 'Ви впевнені?' } %></td>
-    </tr>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td class='col-md-3'><b>Ім'я</b></td>
+                <td class='col-md-3'><b>Прізвище</b></td>
+                <td class='col-md-3'><b>Деталі</b></td>
+                <td class='col-md-3'></td>
+            </tr>
+                    <% @students.each do |student| %>
+            <tr>
+                <td class='col-md-3'><%= student.name %></td>
+                <td class='col-md-3'><%= student.surname %></td>
+                <td class='col-md-3'><%= link_to 'Показати деталі', student_path(student) %></td>
+                <td class='col-md-3'><%= link_to 'Видалити запис', student_path(student),
+                              method: :delete,
+                              data: { confirm: 'Ви впевнені?' } %></td>
+            </tr>
+                    <% end %>
+        </table>
+
+    <%= link_to 'Створити новий запис', 'students/new' %>
+<% else %>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th class='col-md-4'>Ім'я</th>
+                <th class='col-md-4'>Прізвище</th>
+                <th class='col-md-4'>Деталі</th>
+            </tr>
+                    <% @students.each do |student| %>
+            <tr>
+                <td class='col-md-4'><%= student.name %></td>
+                <td class='col-md-4'><%= student.surname %></td>
+                <td class='col-md-4'><%= link_to 'Показати деталі', student_path(student) %></td>
+            </tr>
+                    <% end %>
+        </table>
 <% end %>
-</div>
-<% end %>
-<% if current_user.permissions == 'admin' %>
-<%= link_to 'Створити новий запис', 'students/new' %>
-<% end %>
+<div class = "row">
 <%= link_to 'Повернутися', '/' %>
+</div>
