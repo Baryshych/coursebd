@@ -11,33 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214110030) do
+ActiveRecord::Schema.define(version: 20151225202233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "marks", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "semester",   default: 1, null: false
-    t.integer  "points",     default: 0, null: false
-    t.string   "subject",                null: false
-    t.string   "professor"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "lecturers", force: :cascade do |t|
+    t.string   "name",           null: false
+    t.string   "surname"
+    t.string   "fname"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.text     "works"
+    t.text     "recomendations"
+    t.text     "projects"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string   "name",          default: "",  null: false
-    t.string   "surname",       default: "",  null: false
-    t.string   "fname",         default: "",  null: false
-    t.string   "emails",        default: "",  null: false
-    t.string   "phone_number",  default: "0", null: false
-    t.string   "group",         default: "",  null: false
-    t.integer  "course",        default: 1,   null: false
-    t.string   "date_of_birth"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+  create_table "marks", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "semester",    default: 1, null: false
+    t.integer  "points",      default: 0, null: false
+    t.string   "professor"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "subjects_id"
   end
+
+  add_index "marks", ["subjects_id"], name: "index_marks_on_subjects_id", using: :btree
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name",               default: "",  null: false
+    t.string   "surname",            default: "",  null: false
+    t.string   "fname",              default: "",  null: false
+    t.string   "emails",             default: "",  null: false
+    t.string   "phone_number",       default: "0", null: false
+    t.string   "group",              default: "",  null: false
+    t.integer  "course",             default: 1,   null: false
+    t.string   "date_of_birth"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "achievments"
+    t.text     "projects"
+    t.text     "about"
+    t.string   "adress"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "credit"
+    t.integer  "number_of_hours"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "lecturers_id"
+  end
+
+  add_index "subjects", ["lecturers_id"], name: "index_subjects_on_lecturers_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",        null: false

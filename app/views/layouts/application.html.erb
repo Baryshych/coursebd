@@ -17,7 +17,10 @@
 <ul class="nav nav-tabs " role="tablist" id="mainNav">
   <li role="presentation" class="active"><a href="/">Додому</a></li>
   <li role="presentation"><a href="/mainbase">Переглянути список</a></li>
-  <li role="presentation"><a href="/users/edit">налаштування</a></li>
+  <li role="presentation"><a href="/users/edit">Налаштування профілю</a></li>
+  <% if can? :manage, @student %>
+  <li role="presentation"><a href="/options">Налаштування бази</a></li>
+  <% end %>
 </ul>
 <div class = "container">
 <%= yield %>

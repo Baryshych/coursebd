@@ -1,0 +1,25 @@
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td class='col-md-3'><b>Викладач</b></td>
+                <td class='col-md-3'><b>Предмет</b></td>
+                <td class='col-md-3'></td>
+            </tr>
+                    <% @lecturers.each do |lect| %>
+            <tr>
+                <td class='col-md-3'><%= lect.name %></td>
+                <td class='col-md-3'>
+                    <% lect.subjects do |subj| %>
+                    <%= subj.name %>
+                    <% end %>
+                </td>
+                <td class='col-md-3'><%= link_to 'Видалити запис', lecturer_path(lect),
+                              method: :delete,
+                              data: { confirm: 'Ви впевнені?' } %></td>
+            </tr>
+                    <% end %>
+        </table>
+
+    <%= link_to 'Додати викладача', 'lecturers/new' %>
+<div class = "row">
+<%= link_to 'Повернутися', '/options' %>
+</div>

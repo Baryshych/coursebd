@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  host: <%= ENV['IP'] %>
   username: luka
   password: 4129235
   # For details on connection pooling, see rails configuration guide
@@ -26,7 +26,7 @@ default: &default
 
 development:
   <<: *default
-  database: postdb_development
+  database: postdb
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -84,5 +84,4 @@ test:
 production:
   <<: *default
   database: postdb_production
-  username: postdb
   password: <%= ENV['POSTDB_DATABASE_PASSWORD'] %>

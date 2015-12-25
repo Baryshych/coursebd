@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('#mainNav a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})

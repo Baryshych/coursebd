@@ -21,17 +21,22 @@ div.header {
 	width: 100%;
 	height: 75px;
 	background-color: #AA3939;
+	
 }
 div.container {
 	text-align: center;
+	margin-top: 20px;
+	width: 100%;
+	height: 100%;
 }
 div.footer {
   background-color: #AA3939;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 80px;
+  display: none;
 }
 .mainLogo {
   position: absolute;
@@ -40,4 +45,8 @@ div.footer {
   height: 100px;
   width: 100px;
 
+}
+
+.picklist {
+    margin-top: 20px;
 }

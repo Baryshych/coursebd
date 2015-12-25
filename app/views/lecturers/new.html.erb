@@ -1,0 +1,51 @@
+<%= form_for :lecturer do |f| %>
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Ім’я" %><br>
+      <%= f.text_field :name, :class => 'form-control', :placeholder => "Вассисуарій" %>
+    </div>
+  </div>
+ 
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Прізвище" %><br>
+      <%= f.text_field :surname, :class => 'form-control', :placeholder => "Пупкінсон"  %>
+    </div>
+  </div>
+
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "По-батькові" %><br>
+      <%= f.text_field :fname, :class => 'form-control', :placeholder => "Вассисуарійович"  %>
+    </div>
+  </div>
+  
+
+
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Наукові праці" %><br>
+      <%= f.text_area :works, :class => 'form-control', :placeholder => "vasissuary@pupkin.com"  %>
+    </div>
+  </div>
+
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Проектна робота" %><br>
+      <%= f.text_area :projects, :class => 'form-control', :placeholder => "vasissuary@pupkin.com"  %>
+    </div>
+  </div>
+  
+    <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+      <%= "Відгуки студентів" %><br>
+      <%= f.text_area :recomendations, :class => 'form-control', :placeholder => "vasissuary@pupkin.com"  %>
+    </div>
+  </div>
+
+  <div class = 'row'>
+    <div class="col-md-4 col-md-offset-4">
+    <%= f.submit 'Зберегти', :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

@@ -1,17 +1,28 @@
+<div>
+    <%= form_tag 'mainbase', :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+</div>
 <% if current_user.permissions == 'admin' %>
         <table class="table table-bordered table-hover">
             <tr>
-                <td class='col-md-3'><b>Ім'я</b></td>
-                <td class='col-md-3'><b>Прізвище</b></td>
-                <td class='col-md-3'><b>Деталі</b></td>
-                <td class='col-md-3'></td>
+                <td class='col-md-2'><b></b></td>
+                <td class='col-md-2'><b>Ім'я</b></td>
+                <td class='col-md-2'><b>Прізвище</b></td>
+                <td class='col-md-2'><b>Деталі</b></td>
+                <td class='col-md-2'></td>
             </tr>
                     <% @students.each do |student| %>
             <tr>
-                <td class='col-md-3'><%= student.name %></td>
-                <td class='col-md-3'><%= student.surname %></td>
-                <td class='col-md-3'><%= link_to 'Показати деталі', student_path(student) %></td>
-                <td class='col-md-3'><%= link_to 'Видалити запис', student_path(student),
+                <td class='col-md-2'><%= image_tag student.image.url(:med), :class=>"img-rounded" %>
+                </td>
+                <td class='col-md-2'><%= student.name %></td>
+                <td class='col-md-2'><%= student.surname %></td>
+                <td class='col-md-2'><%= link_to 'Показати деталі', student_path(student) %></td>
+                <td class='col-md-2'><%= link_to 'Видалити запис', student_path(student),
                               method: :delete,
                               data: { confirm: 'Ви впевнені?' } %></td>
             </tr>

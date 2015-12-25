@@ -1,0 +1,23 @@
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td class='col-md-3'><b>Предмет</b></td>
+                <td class='col-md-3'><b>Кредит</b></td>
+                <td class='col-md-3'><b>Кількість годин</b></td>
+                <td class='col-md-3'></td>
+            </tr>
+                    <% @subject.each do |subj| %>
+            <tr>
+                <td class='col-md-3'><%= subj.name %></td>
+                <td class='col-md-3'><%= subj.credit %></td>
+                <td class='col-md-3'><%= subj.number_of_hours %></td>
+                <td class='col-md-3'><%= link_to 'Видалити запис', subject_path(subj),
+                              method: :delete,
+                              data: { confirm: 'Ви впевнені?' } %></td>
+            </tr>
+                    <% end %>
+        </table>
+
+    <%= link_to 'Додати предмет', 'subjects/new' %>
+<div class = "row">
+<%= link_to 'Повернутися', '/options' %>
+</div>

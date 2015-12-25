@@ -1,6 +1,6 @@
 class MainbaseController < ApplicationController
 	def view
-		@students = Student.all
+		 @students = Student.search(params[:search]).order(:surname, :name)
 		if current_user == nil
 			redirect_to "/"
 		else
@@ -13,5 +13,7 @@ class MainbaseController < ApplicationController
 				current_user.save
 			end 
 		end
+	end
+	def options
 	end
 end

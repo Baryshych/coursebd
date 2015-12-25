@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @students = Student.all
-    @current_marks = Mark.where student_id: @student.id
+    @current_marks = @student.marks
     rescue ActiveRecord::RecordNotFound
       redirect_to :action => 'set_marks'
   end
@@ -59,7 +59,7 @@ class StudentsController < ApplicationController
  private
 
   def student_params
-    params.require(:student).permit(:name, :emails, :surname, :fname, :phone_number, :course, :group)
+    params.require(:student).permit(:name, :emails, :surname, :fname, :phone_number, :course, :group, :image, :adress, :about, :projects, :achievments)
   end
   
   def mark_params

@@ -5,7 +5,7 @@ class CreatingMarksTable < ActiveRecord::Migration
     	t.integer :semester, null: false, default: 1
     	t.integer :points, null: false, default: 0
     	t.string :subject, null: false
-    	t.string :professor, nul: false
+    	t.string :professor, null: false
       t.timestamps null: false
     end
   end
